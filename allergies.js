@@ -21,6 +21,15 @@ class Allergies {
         allergic.push(this.allergyList[key]);
       }
     }
+    console.log(this.score)
+    if(!Object.keys(this.allergyList).includes(this.score)) {
+      let scoreArray = Object.keys(this.allergyList).filter(number => number < this.score);
+      scoreArray.forEach(number => {
+        if (Object.keys(this.allergyList).includes(number)) {
+          allergic.push(this.allergyList[number]);
+        }
+      });
+    }
 
     return allergic;
   }
