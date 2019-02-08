@@ -23,15 +23,25 @@ class Allergies {
     }
 
     if(!Object.keys(this.allergyList).includes(this.score.toString())) {
-      let scoreArray = Object.keys(this.allergyList).filter(number => number < this.score);
-      scoreArray.forEach(number => {
-        if (Object.keys(this.allergyList).includes(number)) {
-          allergic.push(this.allergyList[number]);
-        }
-      });
+
+      let allergyScore = this.score;
+      let keysArray = Object.keys(this.allergyList);
+      let countArray = Object.keys(this.allergyList).filter(number => number < this.score);
+
+      for (let i = 0; i < countArray.length; i++) {
+        let result = Math.max.apply(Math, keysArray.filter(function(x){return x <= allergyScore}));
+
+        allergic.push(this.allergyList[result]);
+
+        let index = keysArray.indexOf(result.toString());
+
+        keysArray.splice(index, 1);
+        allergyScore = allergyScore - result;
+
+      }
     }
 
-    return allergic;
+    return allergic.sort().filter(item => item);
   }
 }
 
