@@ -15,6 +15,7 @@ class Allergies {
 
   list() {
     let allergic = []
+    const allergyListValues = Object.values(this.allergyList);
 
     for (let key in this.allergyList) {
       if(key == this.score) {
@@ -26,9 +27,8 @@ class Allergies {
 
       let allergyScore = this.score;
       let keysArray = Object.keys(this.allergyList);
-      let countArray = Object.keys(this.allergyList).filter(number => number < this.score);
 
-      for (let i = 0; i < countArray.length; i++) {
+      while (allergyScore != 0) {
         let result = Math.max.apply(Math, keysArray.filter(function(x){return x <= allergyScore}));
 
         allergic.push(this.allergyList[result]);
@@ -41,7 +41,9 @@ class Allergies {
       }
     }
 
-    return allergic.sort().filter(item => item);
+    return allergic.filter(item => item).sort(function(a, b){
+      return allergyListValues.indexOf(a) - allergyListValues.indexOf(b);
+    });
   }
 }
 
