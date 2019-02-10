@@ -57,9 +57,4 @@ describe('Allergies', () => {
     const allergies = new Allergies(5);
     expect(allergies.allergicTo('eggs')).toEqual(true);
   });
-
-  xtest('ignore non allergen score parts', () => {
-    const allergies = new Allergies(509);
-    expect(allergies.list()).toEqual(['eggs', 'shellfish', 'strawberries', 'tomatoes', 'chocolate', 'pollen', 'cats']);
-  });
 });
