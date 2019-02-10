@@ -36,12 +36,12 @@ describe('Allergies', () => {
     expect(allergies.list()).toEqual(['strawberries', 'tomatoes', 'chocolate', 'pollen', 'cats']);
   });
 
-  xtest('allergic to everything', () => {
+  test('allergic to everything', () => {
     const allergies = new Allergies(255);
     expect(allergies.list()).toEqual(['eggs', 'peanuts', 'shellfish', 'strawberries', 'tomatoes', 'chocolate', 'pollen', 'cats']);
   });
 
-  xtest('no allergic means not allergic', () => {
+  test('no allergic means not allergic', () => {
     const allergies = new Allergies(0);
     expect(allergies.allergicTo('peanuts')).toEqual(false);
     expect(allergies.allergicTo('cats')).toEqual(false);

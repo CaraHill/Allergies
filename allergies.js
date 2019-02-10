@@ -13,6 +13,12 @@ class Allergies {
     }
   }
 
+  allergicTo(allergy) {
+    if (this.score === 0) {
+      return false;
+    }
+  }
+
   list() {
     let allergic = []
     const allergyListValues = Object.values(this.allergyList);
@@ -37,7 +43,6 @@ class Allergies {
 
         keysArray.splice(index, 1);
         allergyScore = allergyScore - result;
-
       }
     }
 
