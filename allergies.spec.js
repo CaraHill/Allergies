@@ -53,7 +53,7 @@ describe('Allergies', () => {
     expect(allergies.allergicTo('eggs')).toEqual(true);
   });
 
-  xtest('allergic to eggs and other things', () => {
+  test('allergic to eggs and other things', () => {
     const allergies = new Allergies(5);
     expect(allergies.allergicTo('eggs')).toEqual(true);
   });

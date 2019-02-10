@@ -23,6 +23,15 @@ class Allergies {
         return true;
       }
     }
+
+    if(!Object.keys(this.allergyList).includes(this.score.toString())) {
+      let allergyKey = Object.keys(this.allergyList).find(key => this.allergyList[key] === allergy);
+      if (allergyKey < this.score) {
+        return true;
+      } else {
+        return false;
+      }
+    }
   }
 
   list() {
