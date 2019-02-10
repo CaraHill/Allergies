@@ -17,6 +17,12 @@ class Allergies {
     if (this.score === 0) {
       return false;
     }
+
+    for (let key in this.allergyList) {
+      if(key == this.score) {
+        return true;
+      }
+    }
   }
 
   list() {
